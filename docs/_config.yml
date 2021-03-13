@@ -10,3 +10,10 @@ collections:
     show_in_nav: true
     nav_label: Universal
 
+defaults:
+  - scope:
+      path: ""
+      type: "godot_3_2"
+    values:
+      layout: "default"
+

@@ -1,6 +1,6 @@
 ---
-Title: GDNative
-category: gdnative
+title: "GDNative godot_object"
 ---
 
-Placeholder content about GDNative object interaction.
+## GDNative and Godot Object interaction
+
