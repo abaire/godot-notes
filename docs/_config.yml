@@ -1,1 +1,4 @@
 theme: jekyll-theme-architect
+collections:
+  - godot_3.2
+  - godot_4.0
