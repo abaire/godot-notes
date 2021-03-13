@@ -75,6 +75,8 @@ header h2 {
 
 aside#sidebar {
   flex-grow: 1;
+  display: inline-flex;
+  flex-direction: column;
   min-height: 504px;
   padding-left: 20px;
   padding-right: 20px;
@@ -92,6 +94,10 @@ aside#sidebar {
 aside#sidebar p.repo-owner,
 aside#sidebar p.repo-owner a {
   font-weight: bold;
+}
+
+section#sidebar-nav {
+  flex-grow: 1;
 }
 
 #downloads {
