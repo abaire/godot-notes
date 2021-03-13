@@ -47,21 +47,46 @@
           <section id="sidebar-nav">
             {% for c in site.collections %}
               {% if c.show_in_nav %}
+
+                {% comment %}
+                Group the docs by their subcategory, and then sort by those subcategories. Intra subcategory
+                sorting is handled during item rendering below.
+                {% endcomment %}
+                {% assign grouped_by_subcategory = c.docs | group_by: "subcategory" | sort_natural: "name" %}
+
                 <h2>{% if c.nav_label %}{{ c.nav_label }}{% else %}{{ c.label }}{% endif %}</h2>
-                <ul>
-                  {% for doc in c.docs %}
-                  <li>
-                    <a href="{{ doc.url | relative_url }}"{% if doc.url == page.url %} class="active"{% endif %}>
-                      {{ doc.title }}
-                    </a>
-                  </li>
+
+                  {% for subcategory in grouped_by_subcategory %}
+                    {% if subcategory.name != "" %}
+                      <h3>{{subcategory.name}}</h3>
+                      <ul>
+                        {% assign sorted_docs = subcategory.items | sort_natural: "title" %}
+                        {% for doc in sorted_docs %}
+                          <li>
+                            <a href="{{ doc.url | relative_url }}"{% if doc.url == page.url %} class="active"{% endif %}>
+                              {{ doc.title }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      {% assign sorted_docs = subcategory.items | sort_natural: "title" %}
+                      <ul>
+                        {% for doc in sorted_docs %}
+                        <li>
+                          <a href="{{ doc.url | relative_url }}"{% if doc.url == page.url %} class="active"{% endif %}>
+                            {{ doc.title }}
+                          </a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
                   {% endfor %}
-                </ul>
               {% endif %}
             {% endfor %}
           </section>
 
-          <section id="sidebar-footer">  
+          <section id="sidebar-footer">
             {% if site.github.is_project_page %}
               <p><a href="{{ site.github.repository_url }}/blob/main/docs/{{ page.path }}"> Edit this page </a> on GitHub</p>
             {% endif %}
@@ -70,10 +95,10 @@
             <p>{{ site.github.build_revision }}</p>
           </section>
         </aside>
-        
+
         <section id="main-content">
           {{ content }}
-        </section>        
+        </section>
       </div>
     </div>
 
