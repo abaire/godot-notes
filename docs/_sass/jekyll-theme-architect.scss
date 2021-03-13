@@ -98,6 +98,19 @@ aside#sidebar p.repo-owner a {
 
 section#sidebar-nav {
   flex-grow: 1;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+.active {
+  margin-left: -0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-weight: bold;
 }
 
 #downloads {
