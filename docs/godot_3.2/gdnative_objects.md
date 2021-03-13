@@ -1,5 +1,6 @@
 ---
 Title: GDNative
 category: gdnative
-order: 1
 ---
+
+Placeholder content about GDNative object interaction.
