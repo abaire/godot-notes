@@ -44,13 +44,23 @@
             </a>
           {% endif %}
 
-          <h2>Godot 3.2</h2>
-          <ul>
-            {% for doc in site.godot_3.2 %}
-              <li><a href="{{ doc.url }}">{{ doc.title }}</a></li>
+          <section id="sidebar-nav">
+            {% for c in site.collections %}
+              {% if c.show_in_nav %}
+                <h2>{% if c.nav_label %}{{ c.nav_label }}{% else %}{{ c.label }}{% endif %}</h2>
+                <ul>
+                  {% for doc in c.docs %}
+                  <li>
+                    <a href="{{ doc.url | relative_url }}"{% if doc.url == page.url %} class="active"{% endif %}>
+                      {{ doc.title }}
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             {% endfor %}
-          </ul>
-          
+          </section>
+
           <section id="sidebar-footer">  
             {% if site.github.is_project_page %}
               <p><a href="{{ site.github.repository_url }}/blob/main/docs/{{ page.path }}"> Edit this page </a> on GitHub</p>

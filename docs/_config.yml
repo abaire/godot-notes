@@ -1,5 +1,12 @@
 theme: jekyll-theme-architect
 collections:
-  godot_3.2:
+  godot_3_2:
     output: true
+    permalink: /:collection/:path/
+    show_in_nav: true
+    nav_label: Godot 3.2
+  universal:
+    output: true
+    show_in_nav: true
+    nav_label: Universal
 
