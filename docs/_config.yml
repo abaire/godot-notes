@@ -16,4 +16,9 @@ defaults:
       type: "godot_3_2"
     values:
       layout: "default"
+  - scope:
+      path: ""
+      type: "universal"
+    values:
+      layout: "default"
 
