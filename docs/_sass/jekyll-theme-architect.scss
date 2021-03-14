@@ -85,6 +85,7 @@ header h2 {
 
 aside#sidebar {
   flex-grow: 1;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   padding-right: 20px;
