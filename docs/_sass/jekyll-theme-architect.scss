@@ -88,7 +88,7 @@ aside#sidebar {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
+  padding-right: 4em;  // To allow for the -margin on h* elements.
   font-size: 12px;
   line-height: 1.3;
   opacity: 0.95;
