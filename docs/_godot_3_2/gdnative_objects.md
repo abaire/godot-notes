@@ -90,7 +90,7 @@ were this method to be called via `godot_method_bind_ptrcall` (see above), these
   // Invocation of SurfaceTool::commit()
   
   // Both arguments have default values and may be omitted.
-  const godot_variant *method_args[] = {};
+  const godot_variant *method_args[] = {NULL};
   godot_variant_call_error err;
 
   godot_variant ret = api->godot_method_bind_call(st_commit, st, method_args, 0, &err);
