@@ -43,9 +43,9 @@ It is possible to get things more or less working with a few workarounds.
 
 ### Custom build tool for Windows (using vcvars)
 
-Program: `"C:\WINDOWS\system32\cmd.exe"`
-Arguments: `/C "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" && scons platform=windows target=release_debug vsproj=yes progress=yes verbose=yes -j6`
-Working directory: `$ProjectFileDir$`
+* Program: `"C:\WINDOWS\system32\cmd.exe"`
+* Arguments: ```/C "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" && scons platform=windows target=release_debug vsproj=yes progress=yes verbose=yes -j6```
+* Working directory: `$ProjectFileDir$`
 
 * `cmd /C` runs a command shell and exits on completion
 * `vcvars64.bat` sets up the Visual Studio build environment
