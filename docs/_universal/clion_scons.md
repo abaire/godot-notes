@@ -26,7 +26,7 @@ It is possible to get things more or less working with a few workarounds.
 1. Open the generated `compile_commands.json` with CLion.
     1. Select `Open as project`
 1. If the compilation database changes (e.g., due to adding/removing files) it can be reloaded via
-   `Tools > Compilation database > Reload compilation database project`
+   `Tools > Compilation database > Reload compilation database project`. At times CLion may grey out the build command, this seems to fix that.
 
 ## Building from within CLion
 
@@ -40,6 +40,16 @@ It is possible to get things more or less working with a few workarounds.
     1. Add a new External Tool (note that these are not the same as CLion's external tools in Preferences)
 
         1. Set the path to `scons` and appropriate build options
+
+### Custom build tool for Windows (using vcvars)
+
+Program: `"C:\WINDOWS\system32\cmd.exe"`
+Arguments: `/C "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" && scons platform=windows target=release_debug vsproj=yes progress=yes verbose=yes -j6`
+Working directory: `$ProjectFileDir$`
+
+* `cmd /C` runs a command shell and exits on completion
+* `vcvars64.bat` sets up the Visual Studio build environment
+* `scons` does the standard build (the `vsproj=yes` can be dropped if there is no need to open in Visual Studio as well)
 
 ## Running from within CLion
 
