@@ -47,6 +47,7 @@ It is possible to get things more or less working with a few workarounds.
 * Arguments: ```/C "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" && scons platform=windows target=release_debug vsproj=yes progress=yes verbose=yes -j6```
 * Working directory: `$ProjectFileDir$`
 
+Explanation:
 * `cmd /C` runs a command shell and exits on completion
 * `vcvars64.bat` sets up the Visual Studio build environment
 * `scons` does the standard build (the `vsproj=yes` can be dropped if there is no need to open in Visual Studio as well)
